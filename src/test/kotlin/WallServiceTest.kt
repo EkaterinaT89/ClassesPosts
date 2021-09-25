@@ -32,7 +32,8 @@ class WallServiceTest {
             likes = likes,
             markedAsAds = true,
             postType = POST,
-            reports = reports
+            reports = reports,
+            attachments = null
         ))
 
         val result = Post(
@@ -59,7 +60,8 @@ class WallServiceTest {
             likes = likes,
             markedAsAds = true,
             postType = POST,
-            reports = reports
+            reports = reports,
+            attachments = null
         )
 
         assertEquals(Post(
@@ -86,7 +88,8 @@ class WallServiceTest {
             likes = likes,
             markedAsAds = true,
             postType = POST,
-            reports = reports
+            reports = reports,
+            attachments = null
         ), result)
         }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="WallServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-09-24T17:22:02" hostname="DESKTOP-0CG7ONO" time="0.141">
+<testsuite name="WallServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-09-25T10:32:03" hostname="DESKTOP-0CG7ONO" time="0.293">
   <properties/>
-  <testcase name="updateExisting_False" classname="WallServiceTest" time="0.14"/>
-  <testcase name="updateExisting_True" classname="WallServiceTest" time="0.001"/>
-  <testcase name="addFunction" classname="WallServiceTest" time="0.0"/>
+  <testcase name="updateExisting_False" classname="WallServiceTest" time="0.292"/>
+  <testcase name="updateExisting_True" classname="WallServiceTest" time="0.0"/>
+  <testcase name="addFunction" classname="WallServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

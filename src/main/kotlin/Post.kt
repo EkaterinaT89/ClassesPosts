@@ -1,4 +1,3 @@
-
 const val POST = "post"
 const val COPY = "copy"
 const val REPLY = "reply"
@@ -32,6 +31,7 @@ data class Post(
     val isFavorite: Boolean, /* true, если объект добавлен в закладки у текущего пользователя */
     val donut: Donut, /* информация о записи VK Donut: */
     var postponedId: Int, /* идентификатор отложенной записи. Это поле возвращается тогда, когда запись стояла на таймере.*/
+    var attachments: Array<String>? = emptyArray()
 
 ) {
 
@@ -44,20 +44,21 @@ data class Post(
 
     override fun toString(): String {
         return "$text \n $postId, ID владельца стены - $ownerId, ID автора поста - $fromId, ID администратора - $createdById, " +
-                "Создан - " + "Запись опубликована администратором " + administrationId(date) +  " $date ч. назад \n" +
+                "Создан - " + "Запись опубликована администратором " + administrationId(date) + " $date ч. назад \n" +
                 " Ответ на ID - $replyOwnerId, Ответ на запись ID $replyPostId, \n" +
-                funPosts.friendsOnly(friendsOnly) +"\n" +
-                comments.toString() +"\n" +
-                copyright.toString() +"\n" +
-                likes.toString() +"\n" +
-                reports.toString() +"\n" +
-                views.toString() +"\n" +
+                funPosts.friendsOnly(friendsOnly) + "\n" +
+                comments.toString() + "\n" +
+                copyright.toString() + "\n" +
+                likes.toString() + "\n" +
+                reports.toString() + "\n" +
+                views.toString() + "\n" +
                 "Тип поста '$postType', Подписано $signerId" + funPosts.canPin(canPin) +
                 funPosts.canDelete(canDelete) +
                 funPosts.canEdit(canEdit) +
-                funPosts.isPinned(isPinned) +"\n" +
+                funPosts.isPinned(isPinned) + "\n" +
                 funPosts.markedAsAds(markedAsAds) + funPosts.isFavorite(isFavorite) +
-               donut.toString() + " ID отложенной записи - $postponedId"
+                donut.toString() + " ID отложенной записи - $postponedId"
+
     }
 
 

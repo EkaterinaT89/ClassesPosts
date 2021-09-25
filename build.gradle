@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation 'junit:junit:4.13.1'
     testImplementation 'junit:junit:4.13.2'
 
 }
@@ -26,6 +25,7 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
 
 
 

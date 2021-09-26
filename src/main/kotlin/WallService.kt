@@ -67,6 +67,12 @@ object WallService {
         return false
     }
 
+    fun addAttachment(attachments: Attachments, post: Post) {
+        post.attachments = post.attachments?.plus(attachments)
+
+    }
+
+
 }
 
 // Если свойства val:

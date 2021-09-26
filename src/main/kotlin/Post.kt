@@ -32,7 +32,7 @@ data class Post(
     val isFavorite: Boolean, /* true, если объект добавлен в закладки у текущего пользователя */
     val donut: Donut, /* информация о записи VK Donut: */
     var postponedId: Int, /* идентификатор отложенной записи. Это поле возвращается тогда, когда запись стояла на таймере.*/
-
+    var attachments: Array<Attachments>? = emptyArray()
 ) {
 
     fun administrationId(date: Int): String {
@@ -57,7 +57,7 @@ data class Post(
                 funPosts.canEdit(canEdit) +
                 funPosts.isPinned(isPinned) +"\n" +
                 funPosts.markedAsAds(markedAsAds) + funPosts.isFavorite(isFavorite) +
-               donut.toString() + " ID отложенной записи - $postponedId"
+               donut.toString() + " ID отложенной записи - $postponedId " + attachments.contentToString()
     }
 
 

@@ -7,6 +7,7 @@ object WallService {
 
     private var posts = emptyArray<Post>()
 
+
 //    fun add(post: Post): Post {
 //        for ((index, item) in posts.withIndex()) {
 //            posts.copyOf().set(
@@ -66,6 +67,12 @@ object WallService {
         }
         return false
     }
+
+    fun addAttachment(attachments: Attachments, post: Post) {
+        post.attachments = post.attachments?.plus(attachments)
+
+    }
+
 
 }
 

@@ -17,9 +17,7 @@ val copyright = Copyright(copyrightIdRandom, "Ссылка", "John", "Close")
 val likes = Likes(countLikesRandom, true, true, false)
 val reports = Reports(reportsRandom, false)
 
-
 fun main () {
-
     val myPost = Post(
         1,
         3,
@@ -99,7 +97,7 @@ fun main () {
         false,
         true,
         donut,
-        1
+        1,
 
     )
     val myPost4 = Post(
@@ -130,10 +128,15 @@ fun main () {
 
     )
 
+    val audio = Audio(1, 222, "URL", "FOOL URL")
+    val audioAttachment = AudioAttachments(audio)
+
     val service = WallService
     service.add(myPost)
     service.add(myPost2)
     service.add(myPost3)
+
+    service.addAttachment(audioAttachment, myPost3)
 
     service.print()
 

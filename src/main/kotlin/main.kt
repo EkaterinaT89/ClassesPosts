@@ -128,15 +128,15 @@ fun main () {
 
     )
 
-    val audioAttachments = AudioAttachments("audio", Audio(1, 222, "URL", "FOOL URL"))
-    val attachments = arrayOf(audioAttachments)
+    val audio = Audio(1, 222, "URL", "FOOL URL")
+    val audioAttachment = AudioAttachments(audio)
 
     val service = WallService
     service.add(myPost)
     service.add(myPost2)
     service.add(myPost3)
 
-    service.addAttachment(audioAttachments, myPost3)
+    service.addAttachment(audioAttachment, myPost3)
 
     service.print()
 

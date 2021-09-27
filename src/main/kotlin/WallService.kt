@@ -7,6 +7,7 @@ object WallService {
 
     private var posts = emptyArray<Post>()
 
+
 //    fun add(post: Post): Post {
 //        for ((index, item) in posts.withIndex()) {
 //            posts.copyOf().set(

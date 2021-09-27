@@ -5,4 +5,7 @@ class Photo(
     var urlFool: String? = null
 ) {
 
+    override fun toString(): String {
+        return " id $id, ownerId $ownerId, url $url, urlFool $urlFool"
+    }
 }

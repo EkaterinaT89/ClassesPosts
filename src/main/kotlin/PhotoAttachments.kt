@@ -1,11 +1,19 @@
 class PhotoAttachments (
-    override var type: String,
-    var photo: Photo = Photo()
+    val photo: Photo = Photo()
 
 ): Attachments {
 
-    fun photo(post: Post) {
-        val photo = type ?: type as Photo
+    override var type: String = "video"
+        set(value) {
+            if (type == "video") {
+                type as Video
+            }
+            field = value
+        }
+        get() = field
+
+    override fun toString(): String {
+        return "$type" + photo.toString()
     }
 
 }

@@ -1,4 +1,4 @@
 open interface Attachments {
-    var type: String
+    val type: String
 
 }

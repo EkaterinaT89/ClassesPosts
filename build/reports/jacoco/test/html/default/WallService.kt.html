@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WallService.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ДЗ 1 посты. классы</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">WallService.kt</span></div><h1>WallService.kt</h1><pre class="source lang-java linenums">import java.lang.reflect.Array.get
+import java.lang.reflect.Array.set
+import java.util.*
+import java.util.function.DoubleBinaryOperator
+
+object WallService {
+
+//    private var posts = emptyArray&lt;Post&gt;()
+
+<span class="pc" id="L10">    val posts:MutableList&lt;Post&gt; = mutableListOf()</span>
+
+//    fun add(post: Post): Post {
+//        for ((index, item) in posts.withIndex()) {
+//            posts.copyOf().set(
+//                index, Post(
+//                    postId = item.postId,
+//                    ownerId = item.ownerId,
+//                    fromId = item.fromId,
+//                    createdById = item.createdById,
+//                    date = item.date,
+//                    text = item.text,
+//                    replyOwnerId = item.replyOwnerId,
+//                    replyPostId = item.replyPostId,
+//                    friendsOnly = item.friendsOnly,
+//                    comments = item.comments,
+//                    copyright = item.copyright,
+//                    likes = item.likes,
+//                    reports = item.reports,
+//                    views = item.views,
+//                    postType = item.postType,
+//                    signerId = item.signerId,
+//                    canPin = item.canPin,
+//                    canDelete = item.canDelete,
+//                    canEdit = item.canEdit,
+//                    isPinned = item.isPinned,
+//                    markedAsAds = item.markedAsAds,
+//                    isFavorite = item.isFavorite,
+//                    donut = item.donut,
+//                    postponedId = item.postponedId
+//                )
+//            )
+//            posts.get(index)
+//        }
+//        for (post in posts) {
+//            if (posts.isNotEmpty()) posts.last().postId++ else 0
+//        }
+//        return posts.last()
+//    }
+
+
+
+    fun add(post: Post): Post {
+<span class="fc" id="L53">          posts += post</span>
+<span class="fc" id="L54">            post.copy(</span>
+<span class="pc bpc" id="L55" title="2 of 4 branches missed.">                postId = if (posts.isNotEmpty()) posts.last().postId ++ else 0</span>
+            )
+<span class="fc" id="L57">        return posts.last()</span>
+    }
+
+    fun print() {
+<span class="nc" id="L61">        println(posts.last().toString())</span>
+<span class="nc" id="L62">    }</span>
+
+    fun update(post: Post): Boolean {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for ((index, item) in posts.withIndex()) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            if (item.postId == post.postId) {</span>
+<span class="fc" id="L67">                posts[index] = post.copy(postId = item.postId, date = item.date)</span>
+<span class="fc" id="L68">                return true</span>
+            }
+        }
+<span class="fc" id="L71">        return false</span>
+    }
+
+}
+
+//       posts += post.copy(postId = post.postId)
+//        post.postId++
+//        return posts.last()
+
+
+//
+//
+// Р•СЃР»Рё СЃРІРѕР№СЃС‚РІР° val:
+//
+// fun add(post: Post): Post {
+//    posts += post
+//    val newPost = post.copy(
+//        postId = post.postId + 1,
+//        ownerId = post.ownerId + 1,
+//        fromId = post.fromId + 1,
+//        createdById = post.createdById + 1,
+//        date = post.date + 1,
+//        replyOwnerId = post.replyOwnerId + 1,
+//        replyPostId = post.replyPostId + 1,
+//        postponedId = post.postponedId + 1
+//    )
+//
+//    println(post.toString() + &quot;\n&quot; + newPost)
+//    return post
+//}
+
+
+//val postId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё */
+//val ownerId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° СЃС‚РµРЅС‹, РЅР° РєРѕС‚РѕСЂРѕР№ СЂР°Р·РјРµС‰РµРЅР° Р·Р°РїРёСЃСЊ */
+//val fromId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР° Р·Р°РїРёСЃРё */
+//val createdById: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°, РєРѕС‚РѕСЂС‹Р№ РѕРїСѓР±Р»РёРєРѕРІР°Р» Р·Р°РїРёСЃСЊ РЎРњ РќР�Р–Р•!!!*/
+//val date: Int, /* РІСЂРµРјСЏ РїСѓР±Р»РёРєР°С†РёРё Р·Р°РїРёСЃРё */
+//val text: String, /* С‚РµРєСЃС‚ Р·Р°РїРёСЃРё */
+//val replyOwnerId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° Р·Р°РїРёСЃРё, РІ РѕС‚РІРµС‚ РЅР° РєРѕС‚РѕСЂСѓСЋ Р±С‹Р»Р° РѕСЃС‚Р°РІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ. */
+//val replyPostId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё, РІ РѕС‚РІРµС‚ РЅР° РєРѕС‚РѕСЂСѓСЋ Р±С‹Р»Р° РѕСЃС‚Р°РІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ */
+//val friendsOnly: Boolean, /* true РµСЃР»Рё Р·Р°РїРёСЃСЊ Р±С‹Р»Р° СЃРѕР·РґР°РЅР° СЃ РѕРїС†РёРµР№ В«РўРѕР»СЊРєРѕ РґР»СЏ РґСЂСѓР·РµР№В» */
+//val comments: Comments, /*  РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕРјРјРµРЅС‚Р°СЂРёСЏС… Рє Р·Р°РїРёСЃРё */
+//val copyright: Copyright, /* РёСЃС‚РѕС‡РЅРёРє РјР°С‚РµСЂРёР°Р»Р° */
+//val likes: Likes, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р»Р°Р№РєР°С… Рє Р·Р°РїРёСЃРё */
+//val reports: Reports, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЂРµРїРѕСЃС‚Р°С… Р·Р°РїРёСЃРё */
+//val views: Views, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕСЃРјРѕС‚СЂР°С… Р·Р°РїРёСЃРё */
+//val postType: String, /* С‚РёРї Р·Р°РїРёСЃРё, РјРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ СЃР»РµРґСѓСЋС‰РёРµ Р·РЅР°С‡РµРЅРёСЏ: post, copy, reply, postpone, suggest. */
+//val signerId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР°, РµСЃР»Рё Р·Р°РїРёСЃСЊ Р±С‹Р»Р° РѕРїСѓР±Р»РёРєРѕРІР°РЅР° РѕС‚ РёРјРµРЅРё СЃРѕРѕР±С‰РµСЃС‚РІР° Рё РїРѕРґРїРёСЃР°РЅР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј;*/
+//val canPin: Boolean, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р·Р°РєСЂРµРїРёС‚СЊ Р·Р°РїРёСЃСЊ (1 вЂ” РјРѕР¶РµС‚, 0 вЂ” РЅРµ РјРѕР¶РµС‚).*/
+//val canDelete: Boolean, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ */
+//val canEdit: Boolean, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·Р°РїРёСЃСЊ */
+//val isPinned: Boolean, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, С‡С‚Рѕ Р·Р°РїРёСЃСЊ Р·Р°РєСЂРµРїР»РµРЅР°. */
+//val markedAsAds: Boolean, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, СЃРѕРґРµСЂР¶РёС‚ Р»Рё Р·Р°РїРёСЃСЊ РѕС‚РјРµС‚РєСѓ &quot;СЂРµРєР»Р°РјР°&quot; */
+//val isFavorite: Boolean, /* true, РµСЃР»Рё РѕР±СЉРµРєС‚ РґРѕР±Р°РІР»РµРЅ РІ Р·Р°РєР»Р°РґРєРё Сѓ С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ */
+//val donut: Donut, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°РїРёСЃРё VK Donut: */
+//val postponedId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕС‚Р»РѕР¶РµРЅРЅРѕР№ Р·Р°РїРёСЃРё. Р­С‚Рѕ РїРѕР»Рµ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‚РѕРіРґР°, РєРѕРіРґР° Р·Р°РїРёСЃСЊ СЃС‚РѕСЏР»Р° РЅР° С‚Р°Р№РјРµСЂРµ.*/
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

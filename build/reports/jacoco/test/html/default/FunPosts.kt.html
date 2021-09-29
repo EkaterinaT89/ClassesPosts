@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FunPosts.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ДЗ 1 посты. классы</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">FunPosts.kt</span></div><h1>FunPosts.kt</h1><pre class="source lang-java linenums"><span class="nc" id="L1">class FunPosts {</span>
+
+    fun friendsOnly(friendsOnly: Boolean): String {
+<span class="nc" id="L4">        when(friendsOnly) {</span>
+<span class="nc bnc" id="L5" title="All 2 branches missed.">            true -&gt; return &quot; Р—Р°РїРёСЃСЊ С‚РѕР»СЊРєРѕ РґР»СЏ РґСЂСѓР·РµР№! &quot;</span>
+<span class="nc" id="L6">            else -&gt; return &quot; Р—Р°РїРёСЃСЊ РґРѕСЃС‚СѓРїРЅР° РґР»СЏ РІСЃРµС…! &quot;</span>
+        }
+    }
+
+    fun canPin(canPin: Boolean): String {
+<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (canPin == true) return &quot; Р—Р°РїРёСЃСЊ Р·Р°РєСЂРµРїР»РµРЅР°. &quot;</span>
+<span class="nc" id="L12">        else return &quot; РЈ РІР°СЃ РЅРµС‚ РїСЂР°РІ РЅР° Р·Р°РєСЂРµРїР»РµРЅРёРµ Р·Р°РїРёСЃРё. &quot;</span>
+    }
+
+    fun canDelete(canDelete: Boolean): String {
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        if (canDelete == true) return &quot; Р—Р°РїРёСЃСЊ СѓРґР°Р»РµРЅР°. &quot;</span>
+<span class="nc" id="L17">        else return &quot; РЈ РІР°СЃ РЅРµС‚ РїСЂР°РІ РЅР° СѓРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё. &quot;</span>
+    }
+
+
+    fun canEdit(canEdit: Boolean): String {
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (canEdit == true) return &quot; Р—Р°РїРёСЃСЊ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР°. &quot;</span>
+<span class="nc" id="L23">        else return &quot; РЈ РІР°СЃ РЅРµС‚ РїСЂР°РІ РЅР° СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°РїРёСЃРё. &quot;</span>
+    }
+
+    fun isPinned(isPinned: Boolean): String {
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (isPinned == true) return &quot; Р—Р°РїРёСЃСЊ Р·Р°РєСЂРµРїР»РµРЅР°. &quot;</span>
+<span class="nc" id="L28">        else return &quot; РћС€РёР±РєР°! Р—Р°РїРёСЃСЊ РЅРµ Р·Р°РєСЂРµРїР»РµРЅР°! &quot;</span>
+    }
+
+    fun markedAsAds(markedAsAds: Boolean): String {
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (markedAsAds == true) return &quot; РЎРѕРґРµСЂР¶РёС‚ СЂРµРєР»Р°РјСѓ! &quot;</span>
+<span class="nc" id="L33">        else return &quot; РќРµ СЃРѕРґРµСЂР¶РёС‚ СЂРµРєР»Р°РјСѓ! &quot;</span>
+    }
+
+    fun isFavorite(isFavorite: Boolean): String {
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (isFavorite == true) return &quot; Р—Р°РїРёСЃСЊ РґРѕР±Р°РІР»РµРЅР° РІ Р·Р°РєР»Р°РґРєРё! &quot;</span>
+<span class="nc" id="L38">        else return &quot; Р—Р°РїРёСЃСЊ РЅРµ РґРѕР±Р°РІР»РµРЅР° РІ Р·Р°РєР»Р°РґРєРё! &quot;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

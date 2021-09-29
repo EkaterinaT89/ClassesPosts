@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Post.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ДЗ 1 посты. классы</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Post.kt</span></div><h1>Post.kt</h1><pre class="source lang-java linenums">
+const val POST = &quot;post&quot;
+const val COPY = &quot;copy&quot;
+const val REPLY = &quot;reply&quot;
+const val POSTPONE = &quot;postpone&quot;
+const val SUGGEST = &quot;suggest&quot;
+
+<span class="nc" id="L8">val funPosts = FunPosts()</span>
+
+<span class="pc bpc" id="L10" title="23 of 46 branches missed.">data class Post(</span>
+<span class="fc" id="L11">    var postId: Int, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L12">    var ownerId: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° СЃС‚РµРЅС‹, РЅР° РєРѕС‚РѕСЂРѕР№ СЂР°Р·РјРµС‰РµРЅР° Р·Р°РїРёСЃСЊ */</span>
+<span class="pc" id="L13">    var fromId: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР° Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L14">    var createdById: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°, РєРѕС‚РѕСЂС‹Р№ РѕРїСѓР±Р»РёРєРѕРІР°Р» Р·Р°РїРёСЃСЊ РЎРњ РќР�Р–Р•!!!*/</span>
+<span class="pc" id="L15">    var date: Int? = null, /* РІСЂРµРјСЏ РїСѓР±Р»РёРєР°С†РёРё Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L16">    val text: String? = null, /* С‚РµРєСЃС‚ Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L17">    var replyOwnerId: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° Р·Р°РїРёСЃРё, РІ РѕС‚РІРµС‚ РЅР° РєРѕС‚РѕСЂСѓСЋ Р±С‹Р»Р° РѕСЃС‚Р°РІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ. */</span>
+<span class="pc" id="L18">    var replyPostId: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё, РІ РѕС‚РІРµС‚ РЅР° РєРѕС‚РѕСЂСѓСЋ Р±С‹Р»Р° РѕСЃС‚Р°РІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ */</span>
+<span class="pc" id="L19">    val friendsOnly: Boolean? = null, /* true РµСЃР»Рё Р·Р°РїРёСЃСЊ Р±С‹Р»Р° СЃРѕР·РґР°РЅР° СЃ РѕРїС†РёРµР№ В«РўРѕР»СЊРєРѕ РґР»СЏ РґСЂСѓР·РµР№В» */</span>
+<span class="pc" id="L20">    val comments: Comments? = null, /*  РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕРјРјРµРЅС‚Р°СЂРёСЏС… Рє Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L21">    val copyright: Copyright? = null, /* РёСЃС‚РѕС‡РЅРёРє РјР°С‚РµСЂРёР°Р»Р° */</span>
+<span class="pc" id="L22">    val likes: Likes? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р»Р°Р№РєР°С… Рє Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L23">    val reports: Reports? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЂРµРїРѕСЃС‚Р°С… Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L24">    val views: Views? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕСЃРјРѕС‚СЂР°С… Р·Р°РїРёСЃРё */</span>
+<span class="pc" id="L25">    val postType: String? = null, /* С‚РёРї Р·Р°РїРёСЃРё, РјРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ СЃР»РµРґСѓСЋС‰РёРµ Р·РЅР°С‡РµРЅРёСЏ: post, copy, reply, postpone, suggest. */</span>
+<span class="pc" id="L26">    var signerId: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР°, РµСЃР»Рё Р·Р°РїРёСЃСЊ Р±С‹Р»Р° РѕРїСѓР±Р»РёРєРѕРІР°РЅР° РѕС‚ РёРјРµРЅРё СЃРѕРѕР±С‰РµСЃС‚РІР° Рё РїРѕРґРїРёСЃР°РЅР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј;*/</span>
+<span class="pc" id="L27">    val canPin: Boolean? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р·Р°РєСЂРµРїРёС‚СЊ Р·Р°РїРёСЃСЊ (1 вЂ” РјРѕР¶РµС‚, 0 вЂ” РЅРµ РјРѕР¶РµС‚).*/</span>
+<span class="pc" id="L28">    val canDelete: Boolean? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ */</span>
+<span class="pc" id="L29">    val canEdit: Boolean? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·Р°РїРёСЃСЊ */</span>
+<span class="pc" id="L30">    val isPinned: Boolean? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, С‡С‚Рѕ Р·Р°РїРёСЃСЊ Р·Р°РєСЂРµРїР»РµРЅР°. */</span>
+<span class="pc" id="L31">    val markedAsAds: Boolean? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, СЃРѕРґРµСЂР¶РёС‚ Р»Рё Р·Р°РїРёСЃСЊ РѕС‚РјРµС‚РєСѓ &quot;СЂРµРєР»Р°РјР°&quot; */</span>
+<span class="pc" id="L32">    val isFavorite: Boolean? = null, /* true, РµСЃР»Рё РѕР±СЉРµРєС‚ РґРѕР±Р°РІР»РµРЅ РІ Р·Р°РєР»Р°РґРєРё Сѓ С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ */</span>
+<span class="pc" id="L33">    val donut: Donut? = null, /* РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°РїРёСЃРё VK Donut: */</span>
+<span class="pc" id="L34">    var postponedId: Int? = null, /* РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕС‚Р»РѕР¶РµРЅРЅРѕР№ Р·Р°РїРёСЃРё. Р­С‚Рѕ РїРѕР»Рµ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‚РѕРіРґР°, РєРѕРіРґР° Р·Р°РїРёСЃСЊ СЃС‚РѕСЏР»Р° РЅР° С‚Р°Р№РјРµСЂРµ.*/</span>
+
+) {
+
+    fun administrationId(date: Int): String {
+<span class="nc" id="L39">        when (date) {</span>
+<span class="nc bnc" id="L40" title="All 6 branches missed.">            in 0..24 -&gt; return createdById.toString()</span>
+<span class="nc" id="L41">            else -&gt; return &quot; &quot;</span>
+        }
+    }
+
+    override fun toString(): String {
+<span class="nc" id="L46">        return &quot;$text \n $postId, ID РІР»Р°РґРµР»СЊС†Р° СЃС‚РµРЅС‹ - $ownerId, ID Р°РІС‚РѕСЂР° РїРѕСЃС‚Р° - $fromId, ID Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР° - $createdById, &quot; +</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">                &quot;РЎРѕР·РґР°РЅ - &quot; + &quot;Р—Р°РїРёСЃСЊ РѕРїСѓР±Р»РёРєРѕРІР°РЅР° Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј &quot; + date?.let { administrationId(it) } +  &quot; $date С‡. РЅР°Р·Р°Рґ \n&quot; +</span>
+<span class="nc" id="L48">                &quot; РћС‚РІРµС‚ РЅР° ID - $replyOwnerId, РћС‚РІРµС‚ РЅР° Р·Р°РїРёСЃСЊ ID $replyPostId, \n&quot; +</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                friendsOnly?.let { funPosts.friendsOnly(it) } +&quot;\n&quot; +</span>
+<span class="nc" id="L50">                comments.toString() +&quot;\n&quot; +</span>
+<span class="nc" id="L51">                copyright.toString() +&quot;\n&quot; +</span>
+<span class="nc" id="L52">                likes.toString() +&quot;\n&quot; +</span>
+<span class="nc" id="L53">                reports.toString() +&quot;\n&quot; +</span>
+<span class="nc" id="L54">                views.toString() +&quot;\n&quot; +</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                &quot;РўРёРї РїРѕСЃС‚Р° '$postType', РџРѕРґРїРёСЃР°РЅРѕ $signerId&quot; + canPin?.let { funPosts.canPin(it) } +</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">                canDelete?.let { funPosts.canDelete(it) } +</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                canEdit?.let { funPosts.canEdit(it) } +</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">                isPinned?.let { funPosts.isPinned(it) } +&quot;\n&quot; +</span>
+<span class="nc bnc" id="L59" title="All 4 branches missed.">                markedAsAds?.let { funPosts.markedAsAds(it) } + isFavorite?.let { funPosts.isFavorite(it) } +</span>
+<span class="nc" id="L60">               donut.toString() + &quot; ID РѕС‚Р»РѕР¶РµРЅРЅРѕР№ Р·Р°РїРёСЃРё - $postponedId&quot;</span>
+    }
+
+
+<span class="fc" id="L64">}</span>
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

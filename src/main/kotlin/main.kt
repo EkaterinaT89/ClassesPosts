@@ -137,7 +137,7 @@ fun main () {
 
     service.print()
 
-//    service.update(myPost4)
+    service.update(myPost4)
 
 
 }

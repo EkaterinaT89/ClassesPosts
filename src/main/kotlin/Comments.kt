@@ -1,11 +1,11 @@
-class Comments (
+class Comments(
     val cout: Int, /* количество комментариев */
     val canPost: Boolean, /* информация о том, может ли текущий пользователь комментировать запись */
     val groupsCanPost: Boolean, /* информация о том, могут ли сообщества комментировать запись */
     val canClose: Boolean, /* может ли текущий пользователь закрыть комментарии к записи */
     val canOpen: Boolean, /* может ли текущий пользователь открыть комментарии к записи */
 
-        ){
+) {
 
     fun canPost(canPost: Boolean): String {
         when (canPost) {
@@ -37,7 +37,7 @@ class Comments (
 
     override fun toString(): String {
         return "Комментариев всего - $cout " + canPost(canPost) + groupsCanPost(groupsCanPost) + canClose(canClose) +
-         canOpen(canOpen)
+                canOpen(canOpen)
     }
 
 

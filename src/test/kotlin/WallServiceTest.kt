@@ -3,6 +3,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class WallServiceTest {
+
 val service = WallService
     @Test
     fun addFunction() {
@@ -91,14 +92,22 @@ val service = WallService
             reports = reports,
             attachments = null
         ), result)
+
+    val service = WallService
+
+    @Test
+    fun addFunction() {
+            val post = Post(postId = 1)
+            val postIdExpected = 3
+            service.add(post)
+            val result = service.add(post).postId
+            assertEquals(postIdExpected, result)
+
         }
 
         @Test
         fun updateExisting_True() {
-            // создаём целевой сервис
-            val service = WallService
-            // заполняем несколькими постами
-            service.add(Post( 1,
+            service.add(Post( 3,
                 3,
                 1,
                 1,
@@ -122,7 +131,7 @@ val service = WallService
                 true,
                 donut,
                 1))
-            service.add(Post( 1,
+            service.add(Post( 2,
                 5,
                 2,
                 1,
@@ -170,8 +179,8 @@ val service = WallService
                 true,
                 donut,
                 1))
-            // создаём информацию об обновлении
-            val update = Post(4,
+
+            val update = Post(2,
                 3,
                 1,
                 1,
@@ -196,18 +205,13 @@ val service = WallService
                 donut,
                 1)
 
-            // выполняем целевое действие
             val result = service.update(update)
 
-            // проверяем результат (используйте assertTrue или assertFalse)
             assertTrue(result)
         }
 
     @Test
     fun updateExisting_False() {
-        // создаём целевой сервис
-        val service = WallService
-        // заполняем несколькими постами
         service.add(Post( 1,
             3,
             1,
@@ -280,7 +284,7 @@ val service = WallService
             true,
             donut,
             1))
-        // создаём информацию об обновлении
+
         val update = Post(45,
             3,
             1,
@@ -306,10 +310,8 @@ val service = WallService
             donut,
             1)
 
-        // выполняем целевое действие
         val result = service.update(update)
 
-        // проверяем результат (используйте assertTrue или assertFalse)
         assertFalse(result)
     }
 

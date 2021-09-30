@@ -1,7 +1,3 @@
-import java.lang.reflect.Array.get
-import java.lang.reflect.Array.set
-import java.util.*
-import java.util.function.DoubleBinaryOperator
 
 object WallService {
 
@@ -11,7 +7,7 @@ object WallService {
     fun add(post: Post): Post {
         posts += post
         post.copy(
-            postId = if (posts.isNotEmpty()) posts.last().postId ++ else 0
+            postId = if (posts.isNotEmpty()) posts.last().postId++ else 0
         )
         return posts.last()
     }
@@ -48,6 +44,9 @@ object WallService {
     fun printCom() {
         println(comments.contentToString())
     }
+
 }
+
+
 
 

@@ -15,8 +15,9 @@ val views = Views(countRandom)
 val donut = Donut(true, paidDurationRandom, "Заглушка", true, "Информация о донате")
 val copyright = Copyright(copyrightIdRandom, "Ссылка", "John", "Close")
 val likes = Likes(countLikesRandom, true, true, false)
-val reports = Reports(reportsRandom, false)
-val comment = Comment(4448, 2, donut = donut, postId = 2888, date = 444, text = "Текст комментария!")
+val repots = Repots(reportsRandom, false)
+val comment = Comment(4448, 2, donut = donut, postId = 2555, date = 444, text = "Текст комментария!")
+
 
 fun main () {
     val myPost = Post(
@@ -32,7 +33,7 @@ fun main () {
         comments,
         copyright,
         likes,
-        reports,
+        repots,
         views,
         POST,
         1,
@@ -59,7 +60,7 @@ fun main () {
         comments,
         copyright,
         likes,
-        reports,
+        repots,
         views,
         POST,
         1,
@@ -87,7 +88,7 @@ fun main () {
         comments,
         copyright,
         likes,
-        reports,
+        repots,
         views,
         POST,
         1,
@@ -114,7 +115,7 @@ fun main () {
         comments,
         copyright,
         likes,
-        reports,
+        repots,
         views,
         POST,
         1,
@@ -146,6 +147,8 @@ fun main () {
     service.printCom()
 
     service.update(myPost4)
+
+
 
 
 }

@@ -19,7 +19,7 @@ data class Post(
     val comments: Comments? = null, /*  информация о комментариях к записи */
     val copyright: Copyright? = null, /* источник материала */
     val likes: Likes? = null, /* информация о лайках к записи */
-    val reports: Reports? = null, /* информация о репостах записи */
+    val repots: Repots? = null, /* информация о репостах записи */
     val views: Views? = null, /* информация о просмотрах записи */
     val postType: String? = null, /* тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest. */
     var signerId: Int? = null, /* идентификатор автора, если запись была опубликована от имени сообщества и подписана пользователем;*/
@@ -50,7 +50,7 @@ data class Post(
                 comments.toString() + "\n" +
                 copyright.toString() + "\n" +
                 likes.toString() + "\n" +
-                reports.toString() + "\n" +
+                repots.toString() + "\n" +
                 views.toString() + "\n" +
                 "Тип поста '$postType', Подписано $signerId" + canPin?.let { funPosts.canPin(it) } +
                 canDelete?.let { funPosts.canDelete(it) } +

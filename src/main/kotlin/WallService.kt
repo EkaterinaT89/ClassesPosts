@@ -6,7 +6,7 @@ import java.util.function.DoubleBinaryOperator
 object WallService {
 
     private var posts = emptyArray<Post>()
-
+    private var comments = emptyArray<Comment>()
 
 //    fun add(post: Post): Post {
 //        for ((index, item) in posts.withIndex()) {
@@ -71,6 +71,20 @@ object WallService {
     fun addAttachment(attachments: Attachments, post: Post) {
         post.attachments = post.attachments?.plus(attachments)
 
+    }
+
+    fun createComment(comment: Comment): Comment {
+        for (post in posts) {
+            if (post.postId == comment.postId) {
+                comments += comment
+                return comments.last()
+            }
+        }
+        throw PostNotFoundException("Пост с таким ID не найден!")
+    }
+
+    fun printCom() {
+        println(comments.contentToString())
     }
 
 

@@ -3,7 +3,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class WallServiceTest {
-
+val service = WallService
     @Test
     fun addFunction() {
         val service = WallService
@@ -311,6 +311,27 @@ class WallServiceTest {
 
         // проверяем результат (используйте assertTrue или assertFalse)
         assertFalse(result)
+    }
+
+    @Test
+    fun commentAdded() {
+        val post = Post(1)
+        val comment = Comment(postId = 2, text = "Text")
+        val textExpected = "Text"
+
+        service.add(post)
+        service.createComment(comment)
+
+        val result = comment.text
+        assertEquals(textExpected, result)
+
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val comment = Comment(postId = 3458)
+        service.createComment(comment)
+
     }
 
 

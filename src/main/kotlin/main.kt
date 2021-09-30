@@ -141,10 +141,14 @@ fun main () {
 
     service.print()
 
+
     service.createComment(commentForPost)
     service.printCom()
 
 //    service.update(myPost4)
+
+    service.update(myPost4)
+
 
 
 }

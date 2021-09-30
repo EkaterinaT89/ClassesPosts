@@ -1,9 +1,6 @@
-import java.lang.reflect.Array.get
-import java.lang.reflect.Array.set
-import java.util.*
-import java.util.function.DoubleBinaryOperator
 
 object WallService {
+
 
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
@@ -46,11 +43,12 @@ object WallService {
 //        return posts.last()
 //    }
 
+
     fun add(post: Post): Post {
-        posts += post
-        for (post in posts) {
-            if (posts.isNotEmpty()) posts.last().postId ++ else 0
-        }
+          posts += post
+            post.copy(
+                postId = if (posts.isNotEmpty()) posts.last().postId ++ else 0
+            )
         return posts.last()
     }
 
@@ -67,6 +65,7 @@ object WallService {
         }
         return false
     }
+
 
     fun addAttachment(attachments: Attachments, post: Post) {
         post.attachments = post.attachments?.plus(attachments)
@@ -134,3 +133,6 @@ object WallService {
 //val isFavorite: Boolean, /* true, если объект добавлен в закладки у текущего пользователя */
 //val donut: Donut, /* информация о записи VK Donut: */
 //val postponedId: Int, /* идентификатор отложенной записи. Это поле возвращается тогда, когда запись стояла на таймере.*/
+
+}
+

@@ -25,10 +25,6 @@ object WallService {
         return false
     }
 
-    fun addAttachment(attachments: Attachments, post: Post) {
-        post.attachments = post.attachments?.plus(attachments)
-    }
-
     fun createComment(comment: Comment): Comment {
         for (post in posts) {
             if (post.postId == comment.postId) {

@@ -8,7 +8,6 @@ var service = WallService
     @Test
     fun addFunction() {
        
-
         service.add(Post(
             postId = 0,
             ownerId = 2004,

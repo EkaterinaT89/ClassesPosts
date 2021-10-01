@@ -3,7 +3,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class WallServiceTest {
-    val service = WallService
+    var service = WallService
 
     @Test
     fun addFunction() {

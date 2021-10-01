@@ -16,10 +16,9 @@ val donut = Donut(true, paidDurationRandom, "Заглушка", true, "Инфо�
 val copyright = Copyright(copyrightIdRandom, "Ссылка", "John", "Close")
 val likes = Likes(countLikesRandom, true, true, false)
 val reports = Reports(reportsRandom, false)
-
+val commentForPost = Comment(4448, 2, donut = donut, postId = 2, date = 444, text = "Текст комментария!")
 
 fun main () {
-
     val myPost = Post(
         1,
         3,
@@ -99,7 +98,7 @@ fun main () {
         false,
         true,
         donut,
-        1
+        1,
 
     )
     val myPost4 = Post(
@@ -137,7 +136,11 @@ fun main () {
 
     service.print()
 
+    service.createComment(commentForPost)
+    service.printCom()
+
     service.update(myPost4)
+
 
 
 }

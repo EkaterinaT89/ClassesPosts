@@ -3,8 +3,9 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class WallServiceTest {
-    var service = WallService
 
+var service = WallService
+    
     @Test
     fun addFunction() {
             val post = Post(postId = 1)
@@ -12,10 +13,11 @@ class WallServiceTest {
             service.add(post)
             val result = service.add(post).postId
             assertEquals(postIdExpected, result)
+
         }
 
-        @Test
-        fun updateExisting_True() {
+    @Test
+    fun updateExisting_True() {
             service.add(Post( 3,
                 3,
                 1,
@@ -224,5 +226,26 @@ class WallServiceTest {
         assertFalse(result)
     }
 
+    @Test
+    fun commentAdded() {
+        val post = Post(1)
+        val comment = Comment(postId = 2, text = "Text")
+        val textExpected = "Text"
+
+        service.add(post)
+        service.createComment(comment)
+
+        val result = comment.text
+        assertEquals(textExpected, result)
+
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val comment = Comment(postId = 3458)
+        service.createComment(comment)
+
+    }
 
 }
+

@@ -1,7 +1,7 @@
-
 object WallService {
-
-    private val posts:MutableList<Post> = mutableListOf()
+    
+    private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
 
     fun add(post: Post): Post {
           posts += post
@@ -25,4 +25,20 @@ object WallService {
         return false
     }
 
+    fun createComment(comment: Comment): Comment {
+        for (post in posts) {
+            if (post.postId == comment.postId) {
+                comments += comment
+                return comments.last()
+            }
+        }
+        throw PostNotFoundException("Пост с таким ID не найден!")
+    }
+
+    fun printCom() {
+        println(comments.contentToString())
+    }
+
 }
+
+

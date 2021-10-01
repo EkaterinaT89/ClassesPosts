@@ -4,10 +4,10 @@ import org.junit.Assert.*
 
 class WallServiceTest {
 
-val service = WallService
+var service = WallService
     @Test
     fun addFunction() {
-        val service = WallService
+       
 
         service.add(Post(
             postId = 0,

@@ -93,7 +93,7 @@ var service = WallService
             attachments = null
         ), result)
 
-    val service = WallService
+    
 
     @Test
     fun addFunction() {

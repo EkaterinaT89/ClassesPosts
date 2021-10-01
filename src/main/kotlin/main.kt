@@ -129,23 +129,15 @@ fun main () {
 
     )
 
-    val audio = Audio(1, 222, "URL", "FOOL URL")
-    val audioAttachment = AudioAttachments(audio)
-
     val service = WallService
     service.add(myPost)
     service.add(myPost2)
     service.add(myPost3)
 
-    service.addAttachment(audioAttachment, myPost3)
-
     service.print()
-
 
     service.createComment(commentForPost)
     service.printCom()
-
-//    service.update(myPost4)
 
     service.update(myPost4)
 

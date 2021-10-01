@@ -1,4 +1,4 @@
-open interface Attachments {
+interface Attachments {
     val type: String
 
 }

@@ -59,10 +59,7 @@ data class Post(
                 canEdit?.let { funPosts.canEdit(it) } +
                 isPinned?.let { funPosts.isPinned(it) } +"\n" +
                 markedAsAds?.let { funPosts.markedAsAds(it) } + isFavorite?.let { funPosts.isFavorite(it) } +
-
-               donut.toString() + " ID отложенной записи - $postponedId " + attachments.contentToString()
-
-                donut.toString() + " ID отложенной записи - $postponedId"
+               donut.toString() + " ID отложенной записи - $postponedId " + attachments.contentToString()"
 
     }
 

@@ -5,94 +5,7 @@ import org.junit.Assert.*
 class WallServiceTest {
 
 var service = WallService
-    @Test
-    fun addFunction() {
-       
-        service.add(Post(
-            postId = 0,
-            ownerId = 2004,
-            fromId = 555,
-            createdById = 85632,
-            date = 20,
-            replyOwnerId = 56326,
-            replyPostId = 87459,
-            signerId = 266498,
-            postponedId = 589632,
-            canDelete = true,
-            canEdit = true,
-            canPin = true,
-            views = views,
-            comments = comment,
-            text = "Текст поста!",
-            donut = donut,
-            copyright = copyright,
-            friendsOnly = false,
-            isFavorite = true,
-            isPinned = false,
-            likes = likes,
-            markedAsAds = true,
-            postType = POST,
-            reports = reports,
-            attachments = null
-        ))
-
-        val result = Post(
-            postId = 0,
-            ownerId = 2004,
-            fromId = 555,
-            createdById = 85632,
-            date = 20,
-            replyOwnerId = 56326,
-            replyPostId = 87459,
-            signerId = 266498,
-            postponedId = 589632,
-            canDelete = true,
-            canEdit = true,
-            canPin = true,
-            views = views,
-            comments = comment,
-            text = "Текст поста!",
-            donut = donut,
-            copyright = copyright,
-            friendsOnly = false,
-            isFavorite = true,
-            isPinned = false,
-            likes = likes,
-            markedAsAds = true,
-            postType = POST,
-            reports = reports,
-            attachments = null
-        )
-
-        assertEquals(Post(
-            postId = 0,
-            ownerId = 2004,
-            fromId = 555,
-            createdById = 85632,
-            date = 20,
-            replyOwnerId = 56326,
-            replyPostId = 87459,
-            signerId = 266498,
-            postponedId = 589632,
-            canDelete = true,
-            canEdit = true,
-            canPin = true,
-            views = views,
-            comments = comment,
-            text = "Текст поста!",
-            donut = donut,
-            copyright = copyright,
-            friendsOnly = false,
-            isFavorite = true,
-            isPinned = false,
-            likes = likes,
-            markedAsAds = true,
-            postType = POST,
-            reports = reports,
-            attachments = null
-        ), result)
-
-   
+    
     @Test
     fun addFunction() {
             val post = Post(postId = 1)
@@ -103,8 +16,8 @@ var service = WallService
 
         }
 
-        @Test
-        fun updateExisting_True() {
+    @Test
+    fun updateExisting_True() {
             service.add(Post( 3,
                 3,
                 1,
@@ -334,5 +247,5 @@ var service = WallService
 
     }
 
-    }
 }
+

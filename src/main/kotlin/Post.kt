@@ -33,6 +33,7 @@ data class Post(
     val donut: Donut? = null, /* информация о записи VK Donut: */
     var postponedId: Int? = null, /* идентификатор отложенной записи. Это поле возвращается тогда, когда запись стояла на таймере.*/
     var attachments: Array<Attachments>? = emptyArray()
+
 ) {
 
     fun administrationId(date: Int): String {

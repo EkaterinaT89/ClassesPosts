@@ -87,7 +87,7 @@ fun main() {
     noteService.printNoteComment()
     noteService.printDeletedComments()
 
-//    service.update(myPost4)
+    service.update(myPost4)
 
 
 }

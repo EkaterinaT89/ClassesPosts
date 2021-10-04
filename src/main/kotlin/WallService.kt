@@ -11,7 +11,7 @@ object WallService {
         )
         return posts.last()
     }
-
+    
     fun print() {
         println(posts.last().toString())
     }
@@ -44,6 +44,5 @@ object WallService {
     fun printCom() {
         println(comments.contentToString())
     }
-
 
 }
